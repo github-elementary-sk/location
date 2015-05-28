@@ -36,15 +36,16 @@ var watchID = null;
 var accStack = [];
 var startTime = null;
 var lastTimestamp = null;
+var rtab = document.getElementById("result_table");
 
 function startWatch() {
 	var receivedElement = document.getElementById('event_received');
 	var watchingElement = document.getElementById('event_watching');
 	receivedElement.setAttribute('style', 'display:none;');
 	watchingElement.setAttribute('style', 'display:block;');
-	document.getElementById("result_pane").innerHTML = "";
 	startTime = null;
-	var options = {frequency : 100};
+	watchID = null;
+	var options = {frequency : 40};
 	watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
 };
 
@@ -73,37 +74,27 @@ function onSuccess(acceleration) {
 	if (acceleration.timestamp != lastTimestamp) {
 		lastTimestamp = acceleration.timestamp;
 		printAccValue(acc);
+		accStack.push(acc);
 	}
-//	accStack.push(acc);
-//	if (accStack.length == 20) {
-//		try {
-//			var accStackClone = (JSON.parse(JSON.stringify(accStack)));
-//			processGainedData(accStackClone);
-//			accStack = [];
-//			stopWatch();
-//		} catch (e) {
-//			document.getElementById("result_pane").innerHTML += e + "<br>";
-//			stopWatch();
-//		}
-//	}
+	if (accStack.length == 500) {
+		stopWatch();
+	}
 };
 
 function onError() {
 	alert('onError!');
 };
 
-//function processGainedData(accStack) {
-//	while (accStack.length > 0) {
-//		printAccValue(accStack.pop());
-//	}
-//};
-
 function printAccValue(acc) {
-	try {
-		document.getElementById("result_pane").innerHTML += acc.t + " : " + acc.x + " : " + acc.y + " : " + acc.z + "<br>";
-	} catch (e) {
-		document.getElementById("result_pane").innerHTML += e + "<br>";
-	}
+	var row = table.insertRow(1);
+	var cell1 = row.insertCell(0);
+	var cell2 = row.insertCell(1);
+	var cell3 = row.insertCell(2);
+	var cell4 = row.insertCell(3);
+	cell1.innerHTML = acc.t;
+	cell2.innerHTML = acc.x;
+	cell3.innerHTML = acc.y;
+	cell4.innerHTML = acc.z;
 };
 
 //function readAccStack() {

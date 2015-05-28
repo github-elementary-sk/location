@@ -7,12 +7,12 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:14px;
+    font-size:16px;
     height:100%;
     width:100%;
-    margin:0px;
+    margin:1px;
     padding:0px;
-    color:#7CF;
+    color:#49E;
     background-color:#000;
 }
 
@@ -20,14 +20,15 @@ body {
 .app {
     margin-left:auto;
     margin-right:auto;
-    text-align:center;
 }
 
 .event {
     border-radius:1px;
-    -webkit-border-radius:1px;
-    margin:2px;
-    padding:2px;
+    -webkit-border-radius:0px;
+    margin:4px;
+    padding:4px;
+    width:70%;
+    text-align:center;
 }
 
 .event.listening.blink {
