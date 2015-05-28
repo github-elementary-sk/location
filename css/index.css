@@ -25,10 +25,12 @@ body {
 .event {
     border-radius:1px;
     -webkit-border-radius:0px;
-    margin:4px;
-    padding:4px;
+    margin-bottom: 5px;
+    padding:5px;
     width:70%;
     text-align:center;
+	margin-left:auto;
+    margin-right:auto;
 }
 
 .event.listening.blink {
@@ -52,6 +54,15 @@ body {
     font-size:11px;
     line-height:13px;
     text-align:left;
+}
+
+td {
+    padding: 2px 5px 2px 2px;
+}
+
+table, td {
+    border: 1px solid #333;
+    border-collapse: collapse;
 }
 
 @keyframes fade {
