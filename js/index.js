@@ -86,15 +86,15 @@ function onError() {
 };
 
 function printAccValue(acc) {
-	var row = table.insertRow(1);
+	var row = rtab.insertRow(1);
 	var cell1 = row.insertCell(0);
 	var cell2 = row.insertCell(1);
 	var cell3 = row.insertCell(2);
 	var cell4 = row.insertCell(3);
-	cell1.innerHTML = acc.t;
-	cell2.innerHTML = acc.x;
-	cell3.innerHTML = acc.y;
-	cell4.innerHTML = acc.z;
+	cell1.innerHTML = acc.t.toFixed(3);
+	cell2.innerHTML = acc.x.toFixed(3);
+	cell3.innerHTML = acc.y.toFixed(3);
+	cell4.innerHTML = acc.z.toFixed(3);
 };
 
 //function readAccStack() {
