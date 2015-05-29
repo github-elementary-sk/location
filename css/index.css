@@ -60,13 +60,18 @@ td.result_table_header {
     text-align:center;
 }
 
-td {
-    padding:2px;
-	text-align:right;
-	max-width:99%;
+#result_table {
+    width:100%;
+    max-height:90%;
+	overflow-y:scroll;
 }
 
-table, td {
+#result_table, #result_table td {
     border: 1px solid #999;
-    border-collapse: collapse;
+    border-collapse: collapse;	
+}
+
+#result_table  td {
+    padding:2px;
+	text-align:right;
 }

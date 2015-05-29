@@ -89,12 +89,12 @@ function onSuccess(acceleration) {
 	if (acceleration.timestamp != lastTimestamp) {
 		lastTimestamp = acceleration.timestamp;
 		printAccValue(acc);
-		accStack.push(acc);
+		// accStack.push(acc);
 	}
-	if (accStack.length == 500) {
-		stopWatch();
-		accStack = [];
-	}
+	// if (accStack.length == 500) {
+		// stopWatch();
+		// accStack = [];
+	// }
 };
 
 function onError() {
@@ -120,8 +120,8 @@ function printAccValue(acc) {
 	cell7.innerHTML = acc.dr.toFixed(0);
 	var xg = acc.x + (9.81*Math.sin(acc.lr*3.14159/180));
 	cell8.innerHTML = xg.toFixed(2); 
-	if (rtab.rows.length == 18) {
-		rtab.deleteRow(17);
+	if (rtab.rows.length == 80) {
+		rtab.deleteRow(79);
 	}
 };
 
