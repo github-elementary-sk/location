@@ -25,28 +25,28 @@ body {
 .event {
     border-radius:3px;
     -webkit-border-radius:3px;
-    margin-bottom:5px;
-    padding:5px;
-    width:70%;
+    margin-bottom:4px;
+    padding:4px;
+    min-width:50%;
+	max-width:70%;
     text-align:center;
-	margin-left:auto;
-    margin-right:auto;
+    border:2px solid #999;
 }
 
-.event.listening.blink {
+.event.listening {
     display:block;
-    border:2px solid #999;
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
+    background-color:#933;
 }
 
 .event.received {
-    border:2px solid #8F6;
+    border-color:#8F6;
+	background-color:clear;
     display:none;
 }
 
 .event.watching {
-    border:2px solid #F86;
+    border-color:#F86;
+    background-color:clear;
     display:none;
 }
 
@@ -59,21 +59,10 @@ body {
 td {
     padding:2px;
 	text-align:right;
+	max-width:99%;
 }
 
 table, td {
     border: 1px solid #999;
     border-collapse: collapse;
-}
-
-@keyframes fade {
-    from { color:#7CF; }
-    50% { color:#999; }
-    to { color:#7CF; }
-}
-
-@-webkit-keyframes fade {
-    from { color:#7CF; }
-    50% { color:#999; }
-    to { color:#7CF; }
 }

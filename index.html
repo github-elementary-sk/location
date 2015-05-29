@@ -11,21 +11,21 @@
     <body>
         <div class="app">
             <div id="deviceready">
-                <p class="event listening blink">Initializing...</p>
+                <p id="event_listening" class="event listening">Initializing...</p>
                 <p id="event_received" class="event received" onclick="startWatch()">Watch acceleration</p>
                 <p id="event_watching" class="event watching" onclick="stopWatch()">Stop watching</p>
             </div>
-            <div class="result_pane" id="result_pane"><table id="result_table">
-		<tr>
-			<span style="text-align:center;">
-			<td>time</td>
-			<td>-x-</td>
-			<td>-y-</td>
-			<td>-z-</td>
-			<td>tilt-l-r</td>
-			<td>tilt-f-b</td>
-			</span>
-		</tr>
+            <div id="result_pane"><table id="result_table">
+				<tr>
+					<span style="text-align:center;">
+					<td>time</td>
+					<td>-x-</td>
+					<td>-y-</td>
+					<td>-z-</td>
+					<td>tilt-l-r</td>
+					<td>tilt-f-b</td>
+					</span>
+				</tr>
             </table></div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
