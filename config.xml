@@ -8,7 +8,8 @@
         Elementary s.r.o.
     </author>
     <content src="index.html" />
-    <preference name="permissions" value="none" />
+    <preference name="permissions" name="WAKE_LOCK" value="true" />
+	<preference name="permissions" name="android.permission.WAKE_LOCK" value="true" />
     <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="true" />
@@ -42,7 +43,7 @@
     <gap:splash gap:platform="ios" height="1136" src="www/res/screen/ios/screen-iphone-portrait-568h-2x.png" width="640" />
     <gap:splash gap:platform="ios" height="1024" src="www/res/screen/ios/screen-ipad-portrait.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
-    <access origin="*" />
+    <access origin="" />
     <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
