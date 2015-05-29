@@ -12,7 +12,7 @@ body {
     width:100%;
     margin:1px;
     padding:0px;
-    color:#6AF;
+    color:#7AF;
     background-color:#000;
 }
 
@@ -23,9 +23,9 @@ body {
 }
 
 .event {
-    border-radius:1px;
-    -webkit-border-radius:0px;
-    margin-bottom: 5px;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    margin-bottom:5px;
     padding:5px;
     width:70%;
     text-align:center;
@@ -35,18 +35,18 @@ body {
 
 .event.listening.blink {
     display:block;
-    border: 1px solid #999;
+    border:2px solid #999;
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
 
 .event.received {
-    border: 2px solid #8F6;
+    border:2px solid #8F6;
     display:none;
 }
 
 .event.watching {
-    border: 2px solid #F86;
+    border:2px solid #F86;
     display:none;
 }
 
@@ -57,12 +57,12 @@ body {
 }
 
 td {
-    padding: 2px;
-	text-align: right;
+    padding:2px;
+	text-align:right;
 }
 
 table, td {
-    border: 1px solid #666;
+    border: 1px solid #999;
     border-collapse: collapse;
 }
 
