@@ -61,9 +61,9 @@ function onSuccess(acceleration) {
 		startTime = acceleration.timestamp;
 		lastTimestamp = startTime;
 	}
-	var tiltLR;
-	var tiltFB;
-	var dir;
+	var tiltLR = 1;
+	var tiltFB = 1;
+	var direction = 1;
 	if (window.DeviceOrientationEvent) {
 		window.addEventListener('deviceorientation', function(eventData) {
 			// gamma is the left-to-right tilt in degrees, where right is positive
@@ -110,8 +110,8 @@ function printAccValue(acc) {
 	cell2.innerHTML = acc.x.toFixed(3);
 	cell3.innerHTML = acc.y.toFixed(3);
 	cell4.innerHTML = acc.z.toFixed(3);
-	cell5.innerHTML = acc.fb.toFixed(1);
-	cell6.innerHTML = acc.lr.toFixed(1);
+	cell5.innerHTML = acc.fb;
+	cell6.innerHTML = acc.lr;
 };
 
 //function readAccStack() {
