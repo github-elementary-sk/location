@@ -54,6 +54,8 @@ body {
     font-size:11px;
     line-height:13px;
     text-align:left;
+    height:80%;
+    overflow-y:scroll;
 }
 
 td.result_table_header {
@@ -61,9 +63,7 @@ td.result_table_header {
 }
 
 #result_table {
-    width:100%;
-    max-height:90%;
-	overflow-y:scroll;
+    width:99%;
 }
 
 #result_table, #result_table td {
