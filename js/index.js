@@ -91,10 +91,14 @@ function printAccValue(acc) {
 	var cell2 = row.insertCell(1);
 	var cell3 = row.insertCell(2);
 	var cell4 = row.insertCell(3);
+	var cell5 = row.insertCell(4);
+	var cell6 = row.insertCell(5);
 	cell1.innerHTML = acc.t.toFixed(3);
 	cell2.innerHTML = acc.x.toFixed(3);
 	cell3.innerHTML = acc.y.toFixed(3);
 	cell4.innerHTML = acc.z.toFixed(3);
+	cell5.innerHTML = window.DeviceOrientationEvent;
+	cell6.innerHTML = "todo";
 };
 
 //function readAccStack() {

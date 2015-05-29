@@ -57,7 +57,8 @@ body {
 }
 
 td {
-    padding: 2px 5px 2px 2px;
+    padding: 2px;
+	text-align: right;
 }
 
 table, td {
