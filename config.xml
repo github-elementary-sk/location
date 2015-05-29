@@ -23,6 +23,9 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
+    <feature name="Insomnia">
+        <param name="android-package" value="nl.xservices.plugins.Insomnia" />
+    </feature>
     <gap:plugin name="org.apache.cordova.battery-status" version="0.2.11" />
     <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
     <gap:plugin name="org.apache.cordova.device-motion" version="0.2.10" />

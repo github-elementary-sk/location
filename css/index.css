@@ -50,10 +50,9 @@ body {
     display:none;
 }
 
-.result_pane {
-    font-size:11px;
-    line-height:13px;
-    text-align:left;
+#result_pane {
+    font-size:12px;
+    line-height:14px;
     height:80%;
     overflow-y:scroll;
 }
