@@ -51,9 +51,13 @@ body {
 }
 
 .result_pane {
-    font-size:12px;
-    line-height:14px;
+    font-size:11px;
+    line-height:13px;
     text-align:left;
+}
+
+td.result_table_header {
+    text-align:center;
 }
 
 td {

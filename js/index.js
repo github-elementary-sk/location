@@ -91,7 +91,7 @@ function onSuccess(acceleration) {
 		printAccValue(acc);
 		accStack.push(acc);
 	}
-	if (accStack.length == 100) {
+	if (accStack.length == 500) {
 		stopWatch();
 		accStack = [];
 	}
@@ -118,9 +118,9 @@ function printAccValue(acc) {
 	cell5.innerHTML = acc.lr.toFixed(0);
 	cell6.innerHTML = acc.fb.toFixed(0);
 	cell7.innerHTML = acc.dr.toFixed(0);
-	cell8.innerHTML = 'todo';
-	if (rtab.rows.length == 40) {
-		rtab.deleteRow(49);
+	cell8.innerHTML = acc.x+(9.81*Math.sin(acc.lr*3.14159/180));
+	if (rtab.rows.length == 20) {
+		rtab.deleteRow(19);
 	}
 };
 
