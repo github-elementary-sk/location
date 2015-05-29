@@ -33,6 +33,9 @@ var accStack = [];
 var startTime = null;
 var lastTimestamp = null;
 var rtab = document.getElementById("result_table");
+var tiltLR = 1;
+var tiltFB = 1;
+var direction = 1;
 
 function startWatch() {
 	var receivedElement = document.getElementById('event_received');
@@ -56,33 +59,31 @@ function stopWatch() {
 	}
 };
 
+if (window.DeviceOrientationEvent) {
+	window.addEventListener('deviceorientation', function(eventData) {
+		// gamma is the left-to-right tilt in degrees, where right is positive
+		tiltLR = 2;
+		// beta is the front-to-back tilt in degrees, where front is positive
+		tiltFB = 2;
+		// alpha is the compass direction the device is facing in degrees
+		dir = 2;
+		// call our orientation event handler
+		deviceOrientationHandler(tiltLR, tiltFB, dir);
+	}, false);
+}
+	
 function onSuccess(acceleration) {
 	if (startTime === null) {
 		startTime = acceleration.timestamp;
 		lastTimestamp = startTime;
-	}
-	var tiltLR = 1;
-	var tiltFB = 1;
-	var direction = 1;
-	if (window.DeviceOrientationEvent) {
-		window.addEventListener('deviceorientation', function(eventData) {
-			// gamma is the left-to-right tilt in degrees, where right is positive
-			tiltLR = eventData.gamma;
-			// beta is the front-to-back tilt in degrees, where front is positive
-			tiltFB = eventData.beta;
-			// alpha is the compass direction the device is facing in degrees
-			dir = eventData.alpha
-			// call our orientation event handler
-			deviceOrientationHandler(tiltLR, tiltFB, dir);
-		}, false);
 	}
 	var acc = {
 		x : acceleration.x,
 		y : acceleration.y,
 		z : acceleration.z,
 		t : (acceleration.timestamp - startTime)/1000
-		fb : tiltFB;
 		lr : tiltLR;
+		fb : tiltFB;
 	};
 	if (acceleration.timestamp != lastTimestamp) {
 		lastTimestamp = acceleration.timestamp;
@@ -110,8 +111,8 @@ function printAccValue(acc) {
 	cell2.innerHTML = acc.x.toFixed(3);
 	cell3.innerHTML = acc.y.toFixed(3);
 	cell4.innerHTML = acc.z.toFixed(3);
-	cell5.innerHTML = acc.fb;
 	cell6.innerHTML = acc.lr;
+	cell5.innerHTML = acc.fb;
 };
 
 //function readAccStack() {

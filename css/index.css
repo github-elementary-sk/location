@@ -7,12 +7,12 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:16px;
+    font-size:18px;
     height:100%;
     width:100%;
     margin:1px;
     padding:0px;
-    color:#49E;
+    color:#6AF;
     background-color:#000;
 }
 
@@ -41,18 +41,18 @@ body {
 }
 
 .event.received {
-    border: 1px solid #8F6;
+    border: 2px solid #8F6;
     display:none;
 }
 
 .event.watching {
-    border: 1px solid #F86;
+    border: 2px solid #F86;
     display:none;
 }
 
 .result_pane {
-    font-size:11px;
-    line-height:13px;
+    font-size:12px;
+    line-height:14px;
     text-align:left;
 }
 
@@ -62,7 +62,7 @@ td {
 }
 
 table, td {
-    border: 1px solid #333;
+    border: 1px solid #666;
     border-collapse: collapse;
 }
 
