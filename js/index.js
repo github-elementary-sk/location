@@ -118,9 +118,10 @@ function printAccValue(acc) {
 	cell5.innerHTML = acc.lr.toFixed(0);
 	cell6.innerHTML = acc.fb.toFixed(0);
 	cell7.innerHTML = acc.dr.toFixed(0);
-	cell8.innerHTML = acc.x+(9.81*Math.sin(acc.lr*3.14159/180));
-	if (rtab.rows.length == 20) {
-		rtab.deleteRow(19);
+	var xg = acc.x + (9.81*Math.sin(acc.lr*3.14159/180));
+	cell8.innerHTML = xg.toFixed(2); 
+	if (rtab.rows.length == 18) {
+		rtab.deleteRow(17);
 	}
 };
 
