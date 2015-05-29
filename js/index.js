@@ -4,14 +4,12 @@ var app = {
 		this.bindEvents();
 	},
 	// Bind Event Listeners
-	//
 	// Bind any events that are required on startup. Common events are:
 	// 'load', 'deviceready', 'offline', and 'online'.
 	bindEvents : function() {
 		document.addEventListener('deviceready', this.onDeviceReady, false);
 	},
 	// deviceready Event Handler
-	//
 	// The scope of 'this' is the event. In order to call the 'receivedEvent'
 	// function, we must explicitly call 'app.receivedEvent(...);'
 	onDeviceReady : function() {
@@ -22,10 +20,8 @@ var app = {
 		var parentElement = document.getElementById(id);
 		var listeningElement = parentElement.querySelector('.listening');
 		var receivedElement = parentElement.querySelector('.received');
-
 		listeningElement.setAttribute('style', 'display:none;');
 		receivedElement.setAttribute('style', 'display:block;');
-
 		console.log('Received Event: ' + id);
 	}
 };
@@ -65,11 +61,28 @@ function onSuccess(acceleration) {
 		startTime = acceleration.timestamp;
 		lastTimestamp = startTime;
 	}
+	var tiltLR;
+	var tiltFB;
+	var dir;
+	if (window.DeviceOrientationEvent) {
+		window.addEventListener('deviceorientation', function(eventData) {
+			// gamma is the left-to-right tilt in degrees, where right is positive
+			tiltLR = eventData.gamma;
+			// beta is the front-to-back tilt in degrees, where front is positive
+			tiltFB = eventData.beta;
+			// alpha is the compass direction the device is facing in degrees
+			dir = eventData.alpha
+			// call our orientation event handler
+			deviceOrientationHandler(tiltLR, tiltFB, dir);
+		}, false);
+	}
 	var acc = {
 		x : acceleration.x,
 		y : acceleration.y,
 		z : acceleration.z,
 		t : (acceleration.timestamp - startTime)/1000
+		fb : tiltFB;
+		lr : tiltLR;
 	};
 	if (acceleration.timestamp != lastTimestamp) {
 		lastTimestamp = acceleration.timestamp;
@@ -97,8 +110,8 @@ function printAccValue(acc) {
 	cell2.innerHTML = acc.x.toFixed(3);
 	cell3.innerHTML = acc.y.toFixed(3);
 	cell4.innerHTML = acc.z.toFixed(3);
-	cell5.innerHTML = window.DeviceOrientationEvent;
-	cell6.innerHTML = "todo";
+	cell5.innerHTML = acc.fb.toFixed(1);
+	cell6.innerHTML = acc.lr.toFixed(1);
 };
 
 //function readAccStack() {
