@@ -57,12 +57,12 @@ body {
     overflow-y:scroll;
 	border:1px solid #CCC;
 	padding:2px;
-	width:100%;
+	width:99%;
 }
 
 #result_table {
-    width:100%;
-	max-height:80%;
+    width:98%;
+	max-height:60%;
     overflow-y:scroll;
 }
 
