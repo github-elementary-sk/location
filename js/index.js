@@ -83,14 +83,15 @@ function onSuccess(acceleration) {
 		z : acceleration.z,
 		t : (acceleration.timestamp - startTime)/1000,
 		lr : tiltLR,
-		fb : tiltFB
+		fb : tiltFB,
+		dr : direction
 	};
 	if (acceleration.timestamp != lastTimestamp) {
 		lastTimestamp = acceleration.timestamp;
 		printAccValue(acc);
 		accStack.push(acc);
 	}
-	if (accStack.length == 500) {
+	if (accStack.length == 1000) {
 		stopWatch();
 	}
 };
@@ -107,13 +108,17 @@ function printAccValue(acc) {
 	var cell4 = row.insertCell(3);
 	var cell5 = row.insertCell(4);
 	var cell6 = row.insertCell(5);
+	var cell7 = row.insertCell(6);
+	var cell8 = row.insertCell(7);
 	cell1.innerHTML = acc.t.toFixed(3);
 	cell2.innerHTML = acc.x.toFixed(3);
 	cell3.innerHTML = acc.y.toFixed(3);
 	cell4.innerHTML = acc.z.toFixed(3);
-	cell5.innerHTML = acc.lr;
-	cell6.innerHTML = acc.fb;
-	if (rtab.rows.length == 50) {
+	cell5.innerHTML = acc.lr.toFixed(1);
+	cell6.innerHTML = acc.fb.toFixed(1);
+	cell7.innerHTML = acc.dr.toFixed(1);
+	cell8.innerHTML = 'todo';
+	if (rtab.rows.length == 40) {
 		rtab.deleteRow(49);
 	}
 };
