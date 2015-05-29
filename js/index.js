@@ -66,7 +66,7 @@ if (window.DeviceOrientationEvent) {
 		// beta is the front-to-back tilt in degrees, where front is positive
 		tiltFB = eventData.beta;
 		// alpha is the compass direction the device is facing in degrees
-		dir = eventData.alpha;
+		direction = eventData.alpha;
 		// call our orientation event handler
 		deviceOrientationHandler(tiltLR, tiltFB, dir);
 	}, false);
@@ -91,8 +91,9 @@ function onSuccess(acceleration) {
 		printAccValue(acc);
 		accStack.push(acc);
 	}
-	if (accStack.length == 1000) {
+	if (accStack.length == 100) {
 		stopWatch();
+		accStack = [];
 	}
 };
 
@@ -110,13 +111,13 @@ function printAccValue(acc) {
 	var cell6 = row.insertCell(5);
 	var cell7 = row.insertCell(6);
 	var cell8 = row.insertCell(7);
-	cell1.innerHTML = acc.t.toFixed(3);
-	cell2.innerHTML = acc.x.toFixed(3);
-	cell3.innerHTML = acc.y.toFixed(3);
-	cell4.innerHTML = acc.z.toFixed(3);
-	cell5.innerHTML = acc.lr.toFixed(1);
-	cell6.innerHTML = acc.fb.toFixed(1);
-	cell7.innerHTML = acc.dr.toFixed(1);
+	cell1.innerHTML = acc.t.toFixed(2);
+	cell2.innerHTML = acc.x.toFixed(2);
+	cell3.innerHTML = acc.y.toFixed(2);
+	cell4.innerHTML = acc.z.toFixed(2);
+	cell5.innerHTML = acc.lr.toFixed(0);
+	cell6.innerHTML = acc.fb.toFixed(0);
+	cell7.innerHTML = acc.dr.toFixed(0);
 	cell8.innerHTML = 'todo';
 	if (rtab.rows.length == 40) {
 		rtab.deleteRow(49);
